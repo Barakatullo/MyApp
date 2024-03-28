@@ -15,8 +15,6 @@ import kotlinx.coroutines.flow.retry
 import javax.inject.Inject
 
 class RepositoryImpl@Inject constructor(
-    private val application: Application,
-  //  private val currencyDao: CurrencyDao,
     private val apiService: ApiService,
     private val mapper: Mapper
 ) : CurrencyRepository {
