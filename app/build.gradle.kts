@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -15,6 +16,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+       viewBinding  = true
     }
 
     buildTypes {
@@ -36,6 +40,16 @@ android {
 }
 
 dependencies {
+
+// retrofit2
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+// dagger2
+    implementation (libs.dagger)
+    ksp (libs.dagger.compiler)
+
+
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
