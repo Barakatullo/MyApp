@@ -27,14 +27,12 @@ class MainViewModel @Inject constructor(
     val timeState = getTime()
     val state: Flow<CurrencyState> = getCurrencyPriceList()
         .map {
-            Log.d("Barakat1", it.toString())
             CurrencyState.Success(it) as CurrencyState
         }.mergeWith(loadingFlow)
 
     private fun refreshList() {
         scope.launch {
             while (true) {
-                Log.d("Barakat2","emi")
                 loadingFlow.emit(CurrencyState.Loading)
                 delay(1000)
                 loadCurrency()

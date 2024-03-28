@@ -4,5 +4,4 @@ data class Currency(
     val name: String,
     val price: String?,
     val charCode: String,
- //  val time: String? = null
 )
